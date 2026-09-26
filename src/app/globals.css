@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-base: #08080C;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --accent-violet: #8B5CF6;
+    --accent-purple: #A855F7;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #08080C;
+    color: #94A3B8;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Linear / Raycast style glow utilities */
+.glow-purple {
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(8, 8, 12, 0) 70%);
+}
+
+.glow-ambient {
+  background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.12) 0%, rgba(139, 92, 246, 0.04) 40%, rgba(8, 8, 12, 0) 70%);
+}
+
+.card-linear {
+  background: rgba(15, 15, 22, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-linear:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.12);
+  transform: translateY(-2px);
+}
+
+.badge-linear {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+/* Subtle grid pattern background */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
