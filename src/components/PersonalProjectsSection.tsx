@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { personalProjects } from "@/data/content";
 import { Code2, ExternalLink, Terminal } from "lucide-react";
@@ -154,10 +155,12 @@ export function PersonalProjectsSection() {
                     <div className="lg:col-span-5 rounded-xl overflow-hidden border border-white/10 bg-black/40 p-2">
                       <div className="space-y-3">
                         {project.images?.map((imgSrc, imgIdx) => (
-                          <img
+                          <Image
                             key={imgIdx}
                             src={imgSrc}
                             alt={`${project.title} screenshot ${imgIdx + 1}`}
+                            width={800}
+                            height={450}
                             className="w-full h-auto rounded-lg object-cover"
                           />
                         ))}

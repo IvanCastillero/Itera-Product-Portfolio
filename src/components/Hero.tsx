@@ -10,10 +10,15 @@ export function Hero() {
   const { language } = useLanguage();
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(siteMetadata.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(siteMetadata.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      // Fallback if clipboard API is restricted
+      window.location.href = `mailto:${siteMetadata.email}`;
+    }
   };
 
   const fullHeadline = heroContent.headline[language];

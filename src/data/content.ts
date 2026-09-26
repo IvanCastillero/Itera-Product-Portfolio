@@ -1,6 +1,6 @@
 import {
   EnterpriseProject,
-  OtherEnterpriseWorkItem,
+  OtherEnterpriseWorkSection,
   PersonalProject,
   ProductPillar,
   TalksSectionData,
@@ -314,7 +314,7 @@ export const enterpriseProjects: EnterpriseProject[] = [
   },
 ];
 
-export const otherEnterpriseWork = {
+export const otherEnterpriseWork: OtherEnterpriseWorkSection = {
   title: {
     en: "Other projects",
     es: "Otros proyectos",

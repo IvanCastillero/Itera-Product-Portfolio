@@ -19,11 +19,21 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#08080C]/80 backdrop-blur-xl border-b border-white/[0.08] py-3.5 shadow-lg shadow-black/20"
+          ? "bg-[#08080C]/85 backdrop-blur-xl border-b border-white/[0.08] py-3.5 shadow-lg shadow-black/20"
           : "bg-transparent py-5"
       }`}
     >
@@ -54,7 +64,10 @@ export function Navbar() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 text-xs font-medium text-neutral-300 bg-white/[0.02] border border-white/[0.06] rounded-full p-1 backdrop-blur-md">
+        <nav
+          aria-label="Main Navigation"
+          className="hidden md:flex items-center gap-1 text-xs font-medium text-neutral-300 bg-white/[0.02] border border-white/[0.06] rounded-full p-1 backdrop-blur-md"
+        >
           {navigationLinks.map((item) => (
             <a
               key={item.key}
@@ -69,9 +82,15 @@ export function Navbar() {
         {/* Right Action Icons & Controls */}
         <div className="hidden md:flex items-center gap-2">
           {/* Language Switcher Pill */}
-          <div className="flex items-center bg-white/[0.04] border border-white/[0.08] rounded-full p-0.5 text-[11px] font-mono">
+          <div
+            role="group"
+            aria-label="Language selection"
+            className="flex items-center bg-white/[0.04] border border-white/[0.08] rounded-full p-0.5 text-[11px] font-mono"
+          >
             <button
               onClick={() => setLanguage("en")}
+              aria-pressed={language === "en"}
+              aria-label="Switch language to English"
               className={`px-2.5 py-1 rounded-full transition-all ${
                 language === "en"
                   ? "bg-[#8B5CF6]/20 text-white font-semibold border border-[#8B5CF6]/40"
@@ -82,6 +101,8 @@ export function Navbar() {
             </button>
             <button
               onClick={() => setLanguage("es")}
+              aria-pressed={language === "es"}
+              aria-label="Cambiar idioma a Español"
               className={`px-2.5 py-1 rounded-full transition-all ${
                 language === "es"
                   ? "bg-[#8B5CF6]/20 text-white font-semibold border border-[#8B5CF6]/40"
@@ -131,6 +152,7 @@ export function Navbar() {
           {/* Mobile Language Switcher */}
           <button
             onClick={() => setLanguage(language === "en" ? "es" : "en")}
+            aria-label={language === "en" ? "Switch to Spanish" : "Cambiar a Inglés"}
             className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-white/[0.04] border border-white/[0.08] text-neutral-300"
           >
             <Globe className="w-3 h-3 text-[#8B5CF6]" />
@@ -139,8 +161,10 @@ export function Navbar() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-menu"
+            aria-label="Toggle navigation menu"
             className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08] text-neutral-300 hover:text-white"
-            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -149,8 +173,11 @@ export function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 mx-4 p-4 rounded-2xl bg-[#0D0D14] border border-white/10 shadow-2xl backdrop-blur-2xl space-y-3">
-          <nav className="flex flex-col space-y-1">
+        <div
+          id="mobile-nav-menu"
+          className="md:hidden mt-2 mx-4 p-4 rounded-2xl bg-[#0D0D14] border border-white/10 shadow-2xl backdrop-blur-2xl space-y-3"
+        >
+          <nav aria-label="Mobile Navigation" className="flex flex-col space-y-1">
             {navigationLinks.map((item) => (
               <a
                 key={item.key}
@@ -180,6 +207,7 @@ export function Navbar() {
                 href={siteMetadata.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub Profile"
                 className="p-2 rounded-full bg-white/[0.04] border border-white/10 text-neutral-300"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -188,6 +216,7 @@ export function Navbar() {
                 href={siteMetadata.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
                 className="p-2 rounded-full bg-white/[0.04] border border-white/10 text-neutral-300"
               >
                 <LinkedinIcon className="w-4 h-4" />

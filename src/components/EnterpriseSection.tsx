@@ -8,7 +8,7 @@ import {
   otherEnterpriseWork,
   talks,
 } from "@/data/content";
-import { Briefcase, CheckCircle2, MessageSquare, Presentation } from "lucide-react";
+import { Briefcase, CheckCircle2, Presentation } from "lucide-react";
 
 export function EnterpriseSection() {
   const { language } = useLanguage();

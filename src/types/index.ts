@@ -25,6 +25,11 @@ export interface OtherEnterpriseWorkItem {
   es: string;
 }
 
+export interface OtherEnterpriseWorkSection {
+  title: LocalizedString;
+  items: OtherEnterpriseWorkItem[];
+}
+
 export interface TalkTopic {
   en: string;
   es: string;

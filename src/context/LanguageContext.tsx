@@ -11,39 +11,37 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+function getInitialLanguage(): Language {
+  if (typeof window === "undefined") return "en";
+  try {
+    const saved = localStorage.getItem("ivan_portfolio_lang");
+    if (saved === "en" || saved === "es") return saved;
+    if (navigator.language.toLowerCase().startsWith("es")) return "es";
+  } catch {
+    // localStorage not accessible
+  }
+  return "en";
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
-  const [mounted, setMounted] = useState(false);
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
   useEffect(() => {
-    setMounted(true);
-    try {
-      const savedLang = localStorage.getItem("ivan_portfolio_lang") as Language;
-      if (savedLang === "en" || savedLang === "es") {
-        setLanguageState(savedLang);
-      } else {
-        const browserLang = navigator.language.toLowerCase();
-        if (browserLang.startsWith("es")) {
-          setLanguageState("es");
-        }
-      }
-    } catch {
-      // Ignore localStorage errors
-    }
-  }, []);
+    // Synchronize HTML lang attribute for a11y and SEO
+    document.documentElement.lang = language;
+  }, [language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     try {
       localStorage.setItem("ivan_portfolio_lang", lang);
     } catch {
-      // Ignore localStorage errors
+      // localStorage not accessible
     }
   };
 
   const toggleLanguage = () => {
-    const nextLang = language === "en" ? "es" : "en";
-    setLanguage(nextLang);
+    setLanguage(language === "en" ? "es" : "en");
   };
 
   return (
