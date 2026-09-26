@@ -14,7 +14,7 @@ export const siteMetadata = {
     es: "Ciudad de Panamá. Disponible Remoto Global",
   },
   email: "ivancastillero102@gmail.com",
-  github: "https://github.com/ivanmanuel",
+  github: "https://github.com/IvanCastillero",
   linkedin: "https://www.linkedin.com/in/ivan-castillero",
 };
 
