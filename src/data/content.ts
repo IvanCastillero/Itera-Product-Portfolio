@@ -388,10 +388,42 @@ export const personalProjects: PersonalProject[] = [
       "Obsidian (Markdown)",
     ],
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/IvanCastillero/donny-study-companion",
     featuredMetric: {
       en: "Built with Spec Driven Development",
       es: "Construido con Spec Driven Development",
+    },
+    images: [],
+  },
+  {
+    id: "bill-splitter",
+    title: "Bill Splitter CLI",
+    tagline: {
+      en: "A multimodal AI receipt splitter with zero-penny rounding leaks and proportional tax distribution.",
+      es: "Un divisor de cuentas con IA multimodal, cuadre exacto al centavo y distribución proporcional de impuestos y propinas.",
+    },
+    problemHypothesis: {
+      en: "Splitting bills in group outings is slow, awkward, and prone to rounding errors. Traditional splitting apps either enforce uniform splits or accumulate penny discrepancies that don't match the receipt total. Combining multimodal AI with strict mathematical apportionment solves both friction points.",
+      es: "Dividir cuentas en salidas grupales suele ser lento, incómodo y propenso a errores de redondeo. Las aplicaciones tradicionales imponen divisiones iguales o generan discrepancias de centavos que no cuadran con el total. Combinar IA multimodal con algoritmos matemáticos exactos elimina ambas fricciones.",
+    },
+    solution: {
+      en: "Built a CLI and QR-enabled mobile web tool that scans receipts from photos using Google Gemini API and Pydantic schemas. Applies the Hare-Niemeyer largest-remainder algorithm to distribute taxes and tips proportionally while guaranteeing zero-penny discrepancy against the receipt total.",
+      es: "Desarrollé una herramienta CLI y web móvil con código QR que escanea facturas por foto usando la API de Google Gemini y esquemas Pydantic. Aplica el algoritmo de Hare-Niemeyer para prorratear impuestos y propinas proporcionalmente, garantizando cuadre exacto al centavo sin fugas de redondeo.",
+    },
+    stack: [
+      "Python 3.10+",
+      "Google Gemini API",
+      "Pydantic",
+      "Typer",
+      "Rich",
+      "Pytest",
+      "Hare-Niemeyer Algorithm",
+    ],
+    liveUrl: "",
+    githubUrl: "https://github.com/IvanCastillero/bill-splitter",
+    featuredMetric: {
+      en: "Zero-Penny Leak Guaranteed",
+      es: "Cuadre Exacto al Centavo",
     },
     images: [],
   },
