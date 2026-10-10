@@ -169,6 +169,20 @@ export function PersonalProjectsSection() {
                       )}
                     </div>
                   )}
+
+                  {!hasLiveUrl && !hasGithubUrl && (
+                    <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-neutral-400">
+                      <span className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-pulse" />
+                        <span className="text-neutral-300">
+                          {language === "en" ? "Private Spec · In Progress" : "Spec Privada · En Proceso"}
+                        </span>
+                      </span>
+                      <span className="text-neutral-500">
+                        {language === "en" ? "MVP Coming Soon" : "MVP Próximamente"}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             );

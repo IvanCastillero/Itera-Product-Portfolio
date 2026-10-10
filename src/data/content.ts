@@ -443,4 +443,64 @@ export const personalProjects: PersonalProject[] = [
     },
     images: [],
   },
+  {
+    id: "compound-engine",
+    title: "Personal Wealth & Compounding Engine",
+    tagline: {
+      en: "A local-first financial modeling system for tracking milestone objectives, expense telemetry, and deterministic compound wealth strategies.",
+      es: "Un sistema de modelado financiero local-first para seguimiento de objetivos patrimoniales, telemetría de egresos y estrategias de interés compuesto.",
+    },
+    problemHypothesis: {
+      en: "Personal financial management often fragments across generic expense trackers and static spreadsheets, making it difficult to simulate long-term compounding returns or align daily spending with multi-year capital targets.",
+      es: "La gestión financiera personal suele fragmentarse entre registradores de gastos genéricos y hojas de cálculo estáticas, dificultando simular rendimientos de interés compuesto a largo plazo o alinear el gasto diario con metas patrimoniales plurianuales.",
+    },
+    solution: {
+      en: "Designing and engineering a local-first mobile system combining real-time expense telemetry, custom financial milestone modeling, and deterministic compound interest calculators. Architected for strict data sovereignty, privacy, and long-term strategic wealth planning.",
+      es: "Diseño y desarrollo de un sistema móvil local-first que combina telemetría de egresos en tiempo real, modelado de metas financieras personalizadas y calculadoras deterministas de interés compuesto. Diseñado bajo estricta soberanía de datos, privacidad y planeación patrimonial estratégica.",
+    },
+    stack: [
+      "Mobile Architecture",
+      "Local-First Storage",
+      "Mathematical Modeling",
+      "Financial Telemetry",
+      "Spec-Driven Development",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+    featuredMetric: {
+      en: "In Active Development · Spec-Driven",
+      es: "En Desarrollo Activo · Spec-Driven",
+    },
+    images: [],
+  },
+  {
+    id: "media-telemetry",
+    title: "Media Intelligence & Content Telemetry",
+    tagline: {
+      en: "A unified media telemetry engine and analytics platform for tracking and visualizing personal cinema, television, and anime consumption.",
+      es: "Un motor unificado de telemetría y analítica de medios para registrar y visualizar el consumo personal de cine, televisión y anime.",
+    },
+    problemHypothesis: {
+      en: "Consumption of movies, television, and anime is dispersed across disjointed streaming services and tracking logs, losing granular historical data, personal watch habits, and long-term entertainment analytics.",
+      es: "El consumo de cine, televisión y anime se encuentra disperso entre múltiples plataformas de streaming y registros aislados, perdiendo datos históricos granulares, hábitos de visualización y análisis cuantitativo del consumo cultural a largo plazo.",
+    },
+    solution: {
+      en: "Building a unified media logging engine and analytics pipeline that consolidates cinema, series, and anime watch-history. Features custom metadata schemas, status lifecycles, and rich statistical breakdowns of consumption patterns over time.",
+      es: "Construcción de un motor de registro unificado y canal de análisis que consolida el historial de consumo de cine, series y anime. Incorpora esquemas de metadatos personalizados, ciclos de vida de estado y estadísticas avanzadas sobre hábitos de consumo en el tiempo.",
+    },
+    stack: [
+      "Cross-Platform App",
+      "API Aggregation",
+      "Data Schemas",
+      "Statistical Analytics",
+      "Spec-Driven Development",
+    ],
+    liveUrl: "",
+    githubUrl: "",
+    featuredMetric: {
+      en: "In Active Development · Spec-Driven",
+      es: "En Desarrollo Activo · Spec-Driven",
+    },
+    images: [],
+  },
 ];
