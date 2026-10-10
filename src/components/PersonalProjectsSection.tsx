@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
-import { personalProjects } from "@/data/content";
+import { personalProjects, personalProjectsHeader } from "@/data/content";
 import { Code2, ExternalLink, Terminal } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
@@ -17,9 +17,7 @@ export function PersonalProjectsSection() {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-[#8B5CF6] mb-4">
             <Code2 className="w-3.5 h-3.5 text-[#8B5CF6]" />
-            <span>
-              {language === "en" ? "Personal Projects" : "Proyectos Personales"}
-            </span>
+            <span>{personalProjectsHeader.tag[language]}</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
@@ -36,10 +34,8 @@ export function PersonalProjectsSection() {
             )}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#94A3B8]">
-            {language === "en"
-              ? "Tools and digital products I design and build to solve real everyday problems, exploring new paradigms in product development."
-              : "Herramientas y productos digitales que diseño y construyo para resolver problemas reales del día a día, explorando nuevos paradigmas de desarrollo."}
+          <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed">
+            {personalProjectsHeader.description[language]}
           </p>
         </div>
 

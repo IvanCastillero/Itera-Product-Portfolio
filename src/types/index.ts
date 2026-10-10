@@ -41,6 +41,12 @@ export interface TalksSectionData {
   topics: TalkTopic[];
 }
 
+export interface PersonalProjectsHeaderData {
+  tag: LocalizedString;
+  title: LocalizedString;
+  description: LocalizedString;
+}
+
 export interface PersonalProject {
   id: string;
   title: string;

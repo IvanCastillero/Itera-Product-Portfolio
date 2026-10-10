@@ -2,6 +2,7 @@ import {
   EnterpriseProject,
   OtherEnterpriseWorkSection,
   PersonalProject,
+  PersonalProjectsHeaderData,
   ProductPillar,
   TalksSectionData,
 } from "@/types";
@@ -360,10 +361,25 @@ export const talks: TalksSectionData = {
   ],
 };
 
+export const personalProjectsHeader: PersonalProjectsHeaderData = {
+  tag: {
+    en: "Personal Projects",
+    es: "Proyectos Personales",
+  },
+  title: {
+    en: "Selected Builds & Personal Projects",
+    es: "Proyectos Personales & Desarrollos Propios",
+  },
+  description: {
+    en: "Digital products and tools I design and build to solve real everyday friction. Every project is developed through Spec-Driven Development (SDD), turning structured PM specifications into working code with AI tools such as Antigravity and Claude Code.",
+    es: "Productos digitales y herramientas que diseño y construyo para resolver fricciones cotidianas reales. Cada proyecto se desarrolla mediante Spec-Driven Development (SDD), convirtiendo especificaciones rigurosas de PM en código funcional con herramientas de IA como Antigravity y Claude Code.",
+  },
+};
+
 export const personalProjects: PersonalProject[] = [
   {
     id: "donny",
-    title: "Donny",
+    title: "Donny: Study Companion",
     tagline: {
       en: "A gamified study companion for macOS that helps me stay consistent without it feeling like a chore.",
       es: "Un compañero de estudio gamificado para macOS que me ayuda a ser constante sin que se sienta como una obligación.",
