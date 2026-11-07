@@ -1,58 +1,117 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --bg-base: #08080C;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --accent-violet: #8B5CF6;
-    --accent-purple: #A855F7;
-  }
+@theme {
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
 
+:root {
+  --bg-obsidian: #0B0B0A;
+  --bg-surface: #121210;
+  --bg-elevated: #171714;
+  --ink-primary: #F4F1EA;
+  --ink-secondary: #A6A29A;
+  --ink-muted: #6E6A63;
+  --accent-signal: #E05A36;
+  --accent-emerald: #10B981;
+  --accent-amber: #F59E0B;
+  --border-hairline: rgba(244, 241, 234, 0.09);
+  --border-strong: rgba(244, 241, 234, 0.18);
+  --in-oklab: ;
+  --in-oklch: ;
+}
+
+@supports (background: linear-gradient(in oklab, white, black)) {
+  :root {
+    --in-oklab: in oklab;
+    --in-oklch: in oklch;
+  }
+}
+
+@layer base {
   html {
     color-scheme: dark;
+    line-height: 1.5;
+    text-align: start;
   }
 
   body {
-    background-color: #08080C;
-    color: #94A3B8;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+    background-color: var(--bg-obsidian);
+    color: var(--ink-secondary);
+    font-family: var(--font-sans);
     overflow-x: hidden;
+    line-height: 1.55;
+  }
+
+  /* Targeted balanced wrapping for short headings (per modern-web-guidance) */
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  /* Pretty line-breaking for body paragraphs and list items to prevent orphans */
+  p, li, blockquote {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
   }
 }
 
-/* Linear / Raycast style glow utilities */
-.glow-purple {
-  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(8, 8, 12, 0) 70%);
+/* Editorial & Architectural Surfaces */
+.surface-dossier {
+  background: linear-gradient(
+    to bottom var(--in-oklab),
+    rgba(23, 23, 20, 0.92),
+    rgba(16, 16, 14, 0.96)
+  );
+  border: 1px solid var(--border-hairline);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glow-ambient {
-  background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.12) 0%, rgba(139, 92, 246, 0.04) 40%, rgba(8, 8, 12, 0) 70%);
+.surface-dossier:hover {
+  border-color: rgba(224, 90, 54, 0.35);
 }
 
-.card-linear {
-  background: rgba(15, 15, 22, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Architectural drafting grid background */
+.bg-architectural-grid {
+  background-size: 64px 64px;
+  background-image:
+    linear-gradient(to right, rgba(244, 241, 234, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 241, 234, 0.028) 1px, transparent 1px);
 }
 
-.card-linear:hover {
-  border-color: rgba(168, 85, 247, 0.3);
-  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.12);
-  transform: translateY(-2px);
+/* Subtle diagonal hatching pattern for technical ledger headers */
+.bg-hatch-pattern {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(244, 241, 234, 0.02) 0 1px,
+    transparent 0 8px
+  );
 }
 
-.badge-linear {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
+/* Custom crosshair corner markers for bespoke editorial feel */
+.crosshair-box {
+  position: relative;
 }
 
-/* Subtle grid pattern background */
-.bg-grid-pattern {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+.crosshair-box::before,
+.crosshair-box::after {
+  content: "+";
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1;
+  color: rgba(244, 241, 234, 0.28);
+  pointer-events: none;
+}
+
+.crosshair-box::before {
+  top: -0.35rem;
+  left: -0.3rem;
+}
+
+.crosshair-box::after {
+  top: -0.35rem;
+  right: -0.3rem;
 }

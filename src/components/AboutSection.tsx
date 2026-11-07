@@ -11,81 +11,97 @@ export function AboutSection() {
   const getPillarIcon = (idx: number) => {
     switch (idx) {
       case 0:
-        return <Layers className="w-5 h-5 text-[#8B5CF6]" />;
+        return <Layers className="w-4 h-4 text-[#E05A36]" />;
       case 1:
-        return <Compass className="w-5 h-5 text-[#A855F7]" />;
+        return <Compass className="w-4 h-4 text-[#E05A36]" />;
       case 2:
-        return <Zap className="w-5 h-5 text-[#C084FC]" />;
+        return <Zap className="w-4 h-4 text-[#E05A36]" />;
       default:
-        return <Sparkles className="w-5 h-5 text-[#8B5CF6]" />;
+        return <Sparkles className="w-4 h-4 text-[#E05A36]" />;
     }
   };
 
   return (
-    <section id="about" className="py-20 md:py-28 relative scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-[#8B5CF6] mb-4">
-            <span>{aboutContent.sectionTag[language]}</span>
+    <section
+      id="about"
+      className="py-20 md:py-28 relative scroll-mt-20 border-t border-[#F4F1EA]/10"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-16">
+        {/* Editorial 2-Column Background & Philosophy Essay */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Section Index & Editorial Lead */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#121210] border border-[#F4F1EA]/15 text-xs font-mono text-[#E05A36] uppercase tracking-widest">
+              <span>{aboutContent.sectionIndex}</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[#F4F1EA] leading-tight">
+              {aboutContent.title[language]}
+            </h2>
+
+            <blockquote className="p-5 bg-[#121210] border-l-2 border-l-[#E05A36] border border-[#F4F1EA]/10 font-serif italic text-lg text-[#F4F1EA] leading-relaxed">
+              “{aboutContent.leadQuote[language]}”
+            </blockquote>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white leading-tight mb-6">
-            {aboutContent.title[language]}
-          </h2>
-
-          <div className="space-y-4 text-base sm:text-lg text-[#94A3B8] leading-relaxed">
+          {/* Right Column: Narrative Paragraphs */}
+          <div className="lg:col-span-7 lg:border-l lg:border-[#F4F1EA]/12 lg:pl-10 space-y-5 text-base text-[#A6A29A] leading-relaxed">
+            <div className="text-xs font-mono uppercase tracking-widest text-[#6E6A63]">
+              {`// ${aboutContent.sectionTag[language]}`}
+            </div>
             {aboutContent.paragraphs[language].map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
+              <p key={idx} className="max-w-[70ch]">
+                {paragraph}
+              </p>
             ))}
           </div>
         </div>
 
-        {/* Philosophy Anchor for smooth navigation */}
-        <div id="philosophy" className="scroll-mt-24 pt-6 mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-[#8B5CF6] mb-2">
-            <span>{language === "en" ? "Philosophy & Core Principles" : "Filosofía y Principios"}</span>
+        {/* 3 Product Decision Pillars */}
+        <div id="philosophy" className="scroll-mt-24 pt-6">
+          <div className="flex items-center justify-between mb-6">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#E05A36]">
+              {language === "en"
+                ? "// OPERATING PRINCIPLES & DECISION HEURISTICS"
+                : "// PRINCIPIOS OPERATIVOS Y REGLAS DE DECISIÓN"}
+            </span>
           </div>
-        </div>
 
-        {/* 3 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {productPillars.map((pillar, idx) => (
-            <div
-              key={idx}
-              className="card-linear p-7 rounded-2xl flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] group-hover:border-[#8B5CF6]/30 transition-colors">
-                    {getPillarIcon(idx)}
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#F4F1EA]/12 border border-[#F4F1EA]/15 bg-[#121210]/80">
+            {productPillars.map((pillar, idx) => (
+              <div
+                key={idx}
+                className="p-7 flex flex-col justify-between hover:bg-[#171714] transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-2 bg-[#0B0B0A] border border-[#F4F1EA]/15">
+                      {getPillarIcon(idx)}
+                    </div>
+                    <span className="font-mono text-sm font-bold text-[#E05A36]">
+                      [{pillar.number}]
+                    </span>
                   </div>
-                  <span className="font-mono text-xs font-semibold text-neutral-500 tracking-wider">
-                    {pillar.number}
-                  </span>
+
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-[#6E6A63] mb-2">
+                    {pillar.tag[language]}
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-[#F4F1EA] mb-3 tracking-tight">
+                    {pillar.title[language]}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#A6A29A] leading-relaxed mb-6">
+                    {pillar.description[language]}
+                  </p>
                 </div>
 
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#8B5CF6] mb-2 font-medium">
-                  {pillar.tag[language]}
+                <div className="pt-4 border-t border-[#F4F1EA]/10 text-xs font-mono text-[#F4F1EA]/90">
+                  {pillar.tradeoffPrinciple[language]}
                 </div>
-
-                <h3 className="text-lg font-semibold text-white mb-3 tracking-tight group-hover:text-white transition-colors">
-                  {pillar.title[language]}
-                </h3>
-
-                <p className="text-sm text-[#94A3B8] leading-relaxed">
-                  {pillar.description[language]}
-                </p>
               </div>
-
-              <div className="mt-6 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs font-mono text-neutral-500">
-                <span>{language === "en" ? "Core Principle" : "Principio Clave"}</span>
-                <span className="text-neutral-400 group-hover:text-[#A855F7] transition-colors">
-                  {language === "en" ? "Applied in Practice" : "Aplicado en la Práctica"}
-                </span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

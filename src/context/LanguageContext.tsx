@@ -12,15 +12,15 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 function getInitialLanguage(): Language {
-  if (typeof window === "undefined") return "en";
+  if (typeof window === "undefined") return "es";
   try {
     const saved = localStorage.getItem("ivan_portfolio_lang");
     if (saved === "en" || saved === "es") return saved;
-    if (navigator.language.toLowerCase().startsWith("es")) return "es";
+    if (navigator.language.toLowerCase().startsWith("en")) return "en";
   } catch {
     // localStorage not accessible
   }
-  return "en";
+  return "es";
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
