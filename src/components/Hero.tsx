@@ -58,17 +58,12 @@ export function Hero() {
             </span>
             <span className="hidden sm:inline text-[#6E6A63]">/</span>
             <span className="hidden sm:inline text-[#A6A29A]">
-              {siteMetadata.location[language]}
+              {heroContent.status[language]}
             </span>
           </div>
 
           <div className="flex items-center gap-2 text-[#A6A29A]">
-            <span className="uppercase tracking-widest text-[11px] text-[#6E6A63]">
-              PM THESIS:
-            </span>
-            <span className="italic font-serif text-sm text-[#F4F1EA]">
-              {heroContent.coreQuestion[language]}
-            </span>
+            <span>{siteMetadata.location[language]}</span>
           </div>
         </div>
 
@@ -146,13 +141,10 @@ export function Hero() {
                 href={siteMetadata.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between px-4 py-2.5 bg-[#121210]/60 hover:bg-[#121210] text-[#A6A29A] hover:text-[#F4F1EA] border border-[#F4F1EA]/10 text-xs font-mono transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#121210]/60 hover:bg-[#121210] text-[#A6A29A] hover:text-[#F4F1EA] border border-[#F4F1EA]/10 text-xs font-mono transition-colors"
               >
-                <span className="flex items-center gap-2">
-                  <GithubIcon className="w-3.5 h-3.5" />
-                  <span>github.com/IvanCastillero</span>
-                </span>
-                <span className="text-[#E05A36]">SDD LAB →</span>
+                <GithubIcon className="w-3.5 h-3.5" />
+                <span>{heroContent.buttons.githubProfile[language]}</span>
               </a>
             </div>
           </div>
@@ -221,7 +213,7 @@ export function Hero() {
               <span>{currentModeData.description[language]}</span>
             </span>
             <span className="hidden md:inline text-[#6E6A63] shrink-0">
-              AUDITED 2026 METRICS
+              PORTFOLIO METRICS
             </span>
           </div>
 

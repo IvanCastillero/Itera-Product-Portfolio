@@ -23,23 +23,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Iván Castillero — Product Manager | 2026 Impact Dossier & Case Studies",
+  title: "Iván Castillero — Product Manager | Data, Tech & Systems",
   description:
-    "Product Manager portfolio & 2026 impact ledger. US$9.0M contract retention, up to US$213.6K/yr projected operational savings, 1,280+ hrs/mo freed, and Spec-Driven Development.",
+    "Product Manager building digital products where data, technology, and people meet. Enterprise solutions, AI workflows, and personal builds.",
   keywords: [
     "Iván Castillero",
     "Product Manager",
     "Technical Product Manager",
-    "B2B Enterprise Product Manager",
+    "Enterprise Solutions",
     "Conversational AI",
-    "Spec-Driven Development",
-    "Product Case Studies",
+    "Systems Thinking",
+    "Data Science",
   ],
   authors: [{ name: "Iván Castillero" }],
   openGraph: {
-    title: "Iván Castillero — Product Manager | 2026 Impact & Case Studies",
+    title: "Iván Castillero — Product Manager",
     description:
-      "Turning ambiguous operational problems into measurable business impact. Explore PAR case studies, trade-offs, and 2026 financial outcomes.",
+      "Building products where data, technology and people meet.",
     type: "website",
     locale: "es_PA",
   },

@@ -67,24 +67,24 @@ export function EnterpriseSection() {
               <Briefcase className="w-3.5 h-3.5" />
               <span>
                 {language === "en"
-                  ? "02 // ENTERPRISE CASE STUDIES (PAR)"
-                  : "02 // CASOS DE ESTUDIO EMPRESARIALES (PAR)"}
+                  ? "02 // ENTERPRISE EXPERIENCE"
+                  : "02 // EXPERIENCIA EMPRESARIAL"}
               </span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#F4F1EA] mb-4">
               {language === "en" ? (
                 <>
-                  Problem, Decisions &{" "}
+                  Enterprise{" "}
                   <span className="font-serif italic font-normal text-[#E05A36]">
-                    Audited Impact.
+                    Solutions.
                   </span>
                 </>
               ) : (
                 <>
-                  Problema, Decisiones e{" "}
+                  Soluciones{" "}
                   <span className="font-serif italic font-normal text-[#E05A36]">
-                    Impacto Cuantificado.
+                    Empresariales.
                   </span>
                 </>
               )}
@@ -98,7 +98,7 @@ export function EnterpriseSection() {
           {/* Filter by Leadership Scope */}
           <div
             role="group"
-            aria-label="Filter case studies by leadership scope"
+            aria-label="Filter projects by leadership scope"
             className="flex flex-wrap bg-[#121210] border border-[#F4F1EA]/15 p-1 gap-1 self-start lg:self-end shrink-0"
           >
             <button
@@ -109,7 +109,7 @@ export function EnterpriseSection() {
                   : "text-[#A6A29A] hover:text-[#F4F1EA]"
               }`}
             >
-              {language === "en" ? "All Cases (4)" : "Todos (4)"}
+              {language === "en" ? "All Projects (4)" : "Todos (4)"}
             </button>
             <button
               onClick={() => setFilterScope("direct")}
@@ -119,7 +119,7 @@ export function EnterpriseSection() {
                   : "text-[#A6A29A] hover:text-[#F4F1EA]"
               }`}
             >
-              {language === "en" ? "100% Led (3)" : "Liderados 100% (3)"}
+              {language === "en" ? "Led End-to-End (3)" : "Liderados (3)"}
             </button>
             <button
               onClick={() => setFilterScope("co-led")}

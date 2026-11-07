@@ -26,14 +26,14 @@ export function PersonalProjectsSection() {
           <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#F4F1EA] mb-4">
             {language === "en" ? (
               <>
-                Spec-Driven Lab &{" "}
+                Selected Builds &{" "}
                 <span className="font-serif italic font-normal text-[#E05A36]">
-                  Personal Builds.
+                  Personal Projects.
                 </span>
               </>
             ) : (
               <>
-                Laboratorio Spec-Driven &{" "}
+                Proyectos Personales &{" "}
                 <span className="font-serif italic font-normal text-[#E05A36]">
                   Desarrollos Propios.
                 </span>

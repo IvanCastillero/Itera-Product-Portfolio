@@ -43,27 +43,18 @@ export function Navbar() {
           href="#"
           className="group flex items-center gap-3 text-[#F4F1EA] transition-opacity hover:opacity-95"
         >
-          <div className="relative flex items-center justify-center w-9 h-9 bg-[#121210] border border-[#F4F1EA]/15 group-hover:border-[#E05A36] transition-colors">
-            <span className="font-mono text-xs font-bold tracking-tighter text-[#F4F1EA]">
+          <div className="relative flex items-center justify-center w-8 h-8 bg-[#121210] border border-[#F4F1EA]/15 group-hover:border-[#E05A36] transition-colors">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[#F4F1EA]">
               IC
             </span>
-            <span
-              className="absolute -top-1 -right-1 w-2 h-2 bg-[#E05A36]"
-              aria-hidden="true"
-            />
           </div>
 
           <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold tracking-tight text-[#F4F1EA]">
-                {siteMetadata.name}
-              </span>
-              <span className="hidden lg:inline-block text-[10px] font-mono uppercase tracking-widest px-1.5 py-0.5 bg-[#F4F1EA]/[0.05] text-[#A6A29A] border border-[#F4F1EA]/10">
-                PM // 2026
-              </span>
-            </div>
+            <span className="text-sm font-semibold tracking-tight text-[#F4F1EA]">
+              {siteMetadata.name}
+            </span>
             <span className="text-[11px] font-mono text-[#A6A29A] hidden sm:block">
-              {siteMetadata.role} · Systems, AI & Data
+              {siteMetadata.role}
             </span>
           </div>
         </a>
