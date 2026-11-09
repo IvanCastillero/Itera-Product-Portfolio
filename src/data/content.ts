@@ -11,7 +11,10 @@ import {
 export const siteMetadata = {
   name: "Iván Castillero",
   role: "Product Manager",
-  edition: "PRODUCT & SYSTEMS PORTFOLIO",
+  edition: {
+    en: "PRODUCT & SYSTEMS PORTFOLIO",
+    es: "PORTAFOLIO DE PRODUCTO Y SISTEMAS",
+  },
   location: {
     en: "Panama City · Open to Global Remote",
     es: "Ciudad de Panamá · Disponible Remoto Global",
@@ -295,24 +298,42 @@ export const portfolioImpact2026: PortfolioImpactConsolidation = {
     },
     items: [
       {
-        client: "Public Sector Institution · Central America",
-        metric: "~US$9M+ Retained",
+        client: {
+          en: "Public Sector Institution · Central America",
+          es: "Institución del Sector Público · Centroamérica",
+        },
+        metric: {
+          en: "~US$9M+ Retained",
+          es: "~US$9M+ Retenido",
+        },
         description: {
           en: "Facilitated an executive prioritization workshop that kicked off a new modernization project and reinforced the retention of a multi-million-dollar (~US$9M) enterprise contract.",
           es: "Taller ejecutivo de priorización que facilitó el inicio de un nuevo proyecto de modernización y reforzó la retención de un contrato multimillonario (~US$9M) en Centroamérica.",
         },
       },
       {
-        client: "Consumer Goods Enterprise · Regional Tech Summit",
-        metric: "New Pipeline",
+        client: {
+          en: "Consumer Goods Enterprise · Regional Tech Summit",
+          es: "Empresa de Consumo Masivo · Cumbre Regional de Tecnología",
+        },
+        metric: {
+          en: "New Pipeline",
+          es: "Nuevas Oportunidades",
+        },
         description: {
           en: "Led the product presentation and discovery showcase during a flagship cloud innovation event, generating new commercial demand and B2B opportunities.",
           es: "Presentación y ejecución de descubrimiento en un evento regional de innovación tecnológica, generando nuevas oportunidades de negocio y demanda comercial.",
         },
       },
       {
-        client: "Managed Operations · South America & Europe",
-        metric: "New Service Line",
+        client: {
+          en: "Managed Operations · South America & Europe",
+          es: "Operaciones Administradas · Sudamérica y Europa",
+        },
+        metric: {
+          en: "New Service Line",
+          es: "Nueva Línea de Servicio",
+        },
         description: {
           en: "Piloted conversational alert automation with enterprise operations teams in South America and Europe, turning an internal platform into a commercializable service.",
           es: "Despliegue de piloto conversacional con clientes en Sudamérica y Europa, habilitando la plataforma como un nuevo servicio comercializable de operaciones.",

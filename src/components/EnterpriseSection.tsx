@@ -149,7 +149,7 @@ export function EnterpriseSection() {
                 <div className="px-6 sm:px-8 py-4 bg-[#0B0B0A]/90 border-b border-[#F4F1EA]/10 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-2.5">
                     <span className="font-mono text-xs font-bold text-[#E05A36] tracking-wider">
-                      {project.code}
+                      {language === "en" ? project.code : project.code.replace("PROJECT", "PROYECTO")}
                     </span>
                     <span className="text-[#6E6A63]">/</span>
                     <span
@@ -319,7 +319,11 @@ export function EnterpriseSection() {
                       </span>
                     </span>
                     <span className="flex items-center gap-1 text-xs font-mono text-[#A6A29A]">
-                      <span>{isExpanded ? "CLOSE" : "EXPAND"}</span>
+                      <span>
+                        {isExpanded
+                          ? language === "en" ? "CLOSE" : "CERRAR"
+                          : language === "en" ? "EXPAND" : "EXPANDIR"}
+                      </span>
                       {isExpanded ? (
                         <ChevronUp className="w-4 h-4 text-[#E05A36]" />
                       ) : (

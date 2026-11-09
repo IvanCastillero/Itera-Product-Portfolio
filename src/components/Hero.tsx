@@ -213,7 +213,7 @@ export function Hero() {
               <span>{currentModeData.description[language]}</span>
             </span>
             <span className="hidden md:inline text-[#6E6A63] shrink-0">
-              PORTFOLIO METRICS
+              {language === "en" ? "PORTFOLIO METRICS" : "MÉTRICAS DE PORTAFOLIO"}
             </span>
           </div>
 
@@ -268,10 +268,10 @@ export function Hero() {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <span className="text-xs font-semibold text-[#F4F1EA]">
-                        {account.client}
+                        {account.client[language]}
                       </span>
                       <span className="font-mono text-xs font-bold px-2 py-0.5 bg-amber-500/10 text-amber-300 border border-amber-500/30 shrink-0">
-                        {account.metric}
+                        {account.metric[language]}
                       </span>
                     </div>
                     <p className="text-xs text-[#A6A29A] leading-relaxed">

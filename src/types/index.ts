@@ -38,8 +38,8 @@ export interface PortfolioImpactConsolidation {
   keyAccountsSummary: {
     title: LocalizedString;
     items: {
-      client: string;
-      metric: string;
+      client: LocalizedString;
+      metric: LocalizedString;
       description: LocalizedString;
     }[];
   };

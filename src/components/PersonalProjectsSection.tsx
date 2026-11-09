@@ -69,7 +69,11 @@ export function PersonalProjectsSection() {
                   <div className="px-6 py-3.5 bg-[#0B0B0A]/90 border-b border-[#F4F1EA]/10 flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2 text-xs font-mono text-[#E05A36] font-bold">
                       <Terminal className="w-3.5 h-3.5" />
-                      <span>{project.code}</span>
+                      <span>
+                        {language === "en"
+                          ? project.code
+                          : project.code.replace("BUILD", "DESARROLLO")}
+                      </span>
                     </div>
 
                     {project.featuredMetric ? (
@@ -224,7 +228,9 @@ export function PersonalProjectsSection() {
                             : "Spec Privada · En Construcción"}
                         </span>
                       </span>
-                      <span className="text-[#6E6A63]">SDD PIPELINE</span>
+                      <span className="text-[#6E6A63]">
+                        {language === "en" ? "SDD PIPELINE" : "FLUJO SDD"}
+                      </span>
                     </div>
                   )}
                 </div>

@@ -27,7 +27,9 @@ export function Footer() {
           {/* Left CTA & Identity */}
           <div className="lg:col-span-7 space-y-4">
             <div className="text-xs font-mono uppercase tracking-widest text-[#E05A36]">
-              {`// ${siteMetadata.edition}`}
+              {language === "en"
+                ? `// ${siteMetadata.edition.en}`
+                : `// ${siteMetadata.edition.es}`}
             </div>
             <h2 className="text-2xl sm:text-4xl font-semibold text-[#F4F1EA] tracking-tight">
               {language === "en" ? (
